@@ -12,8 +12,9 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { ArticlesListComponent } from './home/articles-list/articles-list.component';
 
-import { UserService, AuthenticationService } from './services/index';
+import { UserService, AuthenticationService, ArticleService } from './services/index';
 import { AuthGuard } from './guards/auth.guard';
 
 
@@ -22,7 +23,8 @@ import { AuthGuard } from './guards/auth.guard';
     AppComponent,
     ToolbarComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ArticlesListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { AuthGuard } from './guards/auth.guard';
   ],
   providers: [
     UserService,
+    ArticleService,
     AuthGuard,
     AuthenticationService
     ],

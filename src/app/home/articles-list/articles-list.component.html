@@ -1,0 +1,12 @@
+<md-list>
+  <md-list-item class="article" *ngFor="let article of articles">
+    <md-icon md-list-icon>folder</md-icon>
+    <h4 md-line>{{ article.title }}</h4>
+    <p md-line> {{ article.date | date }} </p>
+    <p md-line> {{ article.description }} </p>    
+
+    <!-- Read more -->
+    <button md-raised-button color="primary">Read more...</button>
+  </md-list-item>
+  <md-divider></md-divider>
+</md-list>
