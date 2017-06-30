@@ -9,6 +9,8 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
+import { UserService } from './services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
