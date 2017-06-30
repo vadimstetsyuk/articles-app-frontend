@@ -1,6 +1,6 @@
 <div class="app-content">
   <div class="group">
-    <form role="form">
+    <form role="form" #loginForm="ngForm">
       <!-- Sign in image -->
       <div>
         <img src="../../assets/img/signin.png" width="400" height="130" />
@@ -8,22 +8,41 @@
 
       <!-- E-mail field -->
       <md-input-container class="full-width">
-        <input mdInput class="input-field" type="email" required>
+        <input mdInput class="input-field" type="text" [(ngModel)]="user.email" name="email" #emailFormControl="ngModel" email required>
         <md-placeholder>
           <i class="material-icons app-input-icon">face</i>E-mail
         </md-placeholder>
+
+        <md-error>
+          <div [hidden]="!emailFormControl?.errors?.required">
+            Password is required
+          </div>
+          <div [hidden]="!emailFormControl.hasError('normalEmailRule')">
+            Isn't an email
+          </div>
+        </md-error>
       </md-input-container><br>
 
       <!-- Password field -->
       <md-input-container class="full-width">
-        <input mdInput class="input-field" type="password" required>
+        <input mdInput class="input-field" type="password" [(ngModel)]="user.password" name="password" minlength="6" #passwordFormControl="ngModel"
+          required>
         <md-placeholder>
           <i class="material-icons app-input-icon">lock_open</i>Password
         </md-placeholder>
+
+        <md-error>
+          <div [hidden]="!passwordFormControl?.errors?.required">
+            Password is required
+          </div>
+          <div [hidden]="!passwordFormControl?.errors?.minlength">
+            Password must be at least 5 characters long.
+          </div>
+        </md-error>
       </md-input-container><br><br>
 
       <!-- Submit button -->
-      <button md-raised-button class="full-width" color="primary" type="submit" name="action">Sign in</button>
+      <button md-raised-button class="full-width" color="primary" type="submit" [disabled]="!loginForm.form.valid" (click)="login()">Sign in</button>
     </form>
   </div>
 </div>

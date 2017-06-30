@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
+import { ValidatorsModule } from 'ngx-validators'
 import { Routing } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { AuthGuard } from './guards/auth.guard';
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ValidatorsModule,
     Routing
   ],
   providers: [
