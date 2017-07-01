@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Article } from '../../models/article';
 import { ArticleService } from '../../services/index';
 
@@ -15,7 +16,8 @@ export class ArticlesListComponent implements OnInit {
     itemsPerPage: number = 5;
 
 
-    constructor(private articleService: ArticleService) {
+    constructor(private articleService: ArticleService,
+                private router: Router) {
         this.articles = [];
     }
 
@@ -60,5 +62,10 @@ export class ArticlesListComponent implements OnInit {
         this.paginated = this.articles.filter(article => {
             return this.articles.indexOf(article) >= low && this.articles.indexOf(article) < high;
         });
+    }
+
+    openArticle(id: number) {
+        let url = '/articles/' + id;
+        this.router.navigate([url]);
     }
 }

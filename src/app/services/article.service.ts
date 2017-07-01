@@ -18,4 +18,12 @@ export class ArticleService {
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
+
+    getArticleById(id: number): Observable<Article> {
+        let url = 'http://localhost:3000/api/articles/' + id;
+
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
 }

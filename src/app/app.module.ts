@@ -13,6 +13,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ArticlesListComponent } from './home/articles-list/articles-list.component';
+import { ArticleComponent } from './home/article/article.component';
 import { PaginationComponent } from './home/articles-list/pagination/pagination.component';
 
 import { UserService, AuthenticationService, ArticleService } from './services/index';
@@ -26,6 +27,7 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     HomeComponent,
     ArticlesListComponent,
+    ArticleComponent,
     PaginationComponent
   ],
   imports: [
