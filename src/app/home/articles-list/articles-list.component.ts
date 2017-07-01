@@ -11,6 +11,10 @@ import { ArticleService } from '../../services/index';
 export class ArticlesListComponent implements OnInit {
     articles: Article[];
 
+    paginated: Article[];
+    itemsPerPage: number = 5;
+
+
     constructor(private articleService: ArticleService) {
         this.articles = [];
     }
@@ -26,21 +30,35 @@ export class ArticlesListComponent implements OnInit {
         this.articleService.getArticles()
             .subscribe(articles => {
                 this.articles = this.sortArticlesByTime(articles);
+                if(this.articles)
+                    this.paginateArticles(1);
             },
             err => {
                 // console.log(err);
             });
     }
 
-    sortArticlesByTime(articles: Article[]) : Article[] {
+    sortArticlesByTime(articles: Article[]): Article[] {
         articles.sort((a, b) => {
             let A = new Date(a.date).getTime();
             let B = new Date(a.date).getTime();
-            
+
             return (A > B)
                 ? 1 : 0;
         });
 
         return articles;
+    }
+
+    /*
+    * Deviding articles to itemPerPage
+    */
+    paginateArticles(page: number) {
+        let low = (page * this.itemsPerPage) - this.itemsPerPage;
+        let high = page * this.itemsPerPage;
+
+        this.paginated = this.articles.filter(article => {
+            return this.articles.indexOf(article) >= low && this.articles.indexOf(article) < high;
+        });
     }
 }
