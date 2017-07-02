@@ -24,6 +24,9 @@ export class PaginationComponent implements OnChanges {
         this.initPages();
     }
 
+    /*
+    * Emit event when user changed current page
+    */
     onPageClicked(page: number) {
         this.initPages();
 
@@ -35,6 +38,9 @@ export class PaginationComponent implements OnChanges {
         }
     }
 
+    /*
+    * Fill the array of pages respectively item per page & all articles
+    */
     initPages() {
         let countPages = Math.ceil(this.articles.length / this.itemsPerPage);
 

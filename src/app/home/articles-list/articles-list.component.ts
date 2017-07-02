@@ -12,12 +12,12 @@ import { ArticleService } from '../../services/index';
 export class ArticlesListComponent implements OnInit {
     articles: Article[];
 
-    paginated: Article[];
+    paginated: Article[]; // articles for current page
     itemsPerPage: number = 5;
 
 
     constructor(private articleService: ArticleService,
-                private router: Router) {
+        private router: Router) {
         this.articles = [];
     }
 
@@ -26,13 +26,13 @@ export class ArticlesListComponent implements OnInit {
     }
 
     /*
-    * Get all companies from server
+    * Get all articles
     */
     getArticles() {
         this.articleService.getArticles()
             .subscribe(articles => {
                 this.articles = this.sortArticlesByTime(articles);
-                if(this.articles)
+                if (this.articles)
                     this.paginateArticles(1);
             },
             err => {
@@ -40,20 +40,19 @@ export class ArticlesListComponent implements OnInit {
             });
     }
 
+    /*
+    * Sort articles by time (by recently)
+    */
     sortArticlesByTime(articles: Article[]): Article[] {
         articles.sort((a, b) => {
-            let A = new Date(a.date).getTime();
-            let B = new Date(a.date).getTime();
-
-            return (A > B)
-                ? 1 : 0;
+            return new Date(b.date).getTime().toLocaleString().localeCompare(new Date(a.date).getTime().toLocaleString());
         });
 
         return articles;
     }
 
     /*
-    * Deviding articles to itemPerPage
+    * Devide articles to itemPerPage
     */
     paginateArticles(page: number) {
         let low = (page * this.itemsPerPage) - this.itemsPerPage;
@@ -64,6 +63,9 @@ export class ArticlesListComponent implements OnInit {
         });
     }
 
+    /*
+    * Redirect to selected article page
+    */
     openArticle(id: number) {
         let url = '/articles/' + id;
         this.router.navigate([url]);
