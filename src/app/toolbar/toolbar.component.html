@@ -2,4 +2,5 @@
     <md-icon class="icon">comment</md-icon>
     <span class="logo">Articles</span>
     <span class="spacer"></span>
+    <button md-button *ngIf="isLogged" (click)="logout()">Logout</button>
 </md-toolbar>
