@@ -3,7 +3,6 @@
 */
 
 export class Comment {
-    id: Number;
     articleId: Number;
     senderName: String;
     senderEmail: String;
