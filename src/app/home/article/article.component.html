@@ -1,11 +1,8 @@
+<!-- Current article -->
 <div class="header">
-    <button md-raised-button color="primary" (click)="goBack()">
-        Back
-    </button>
+    <button md-raised-button color="primary" (click)="goBack()">Back</button>
 </div>
 <md-card>
-    <md-card-actions>
-    </md-card-actions>
     <md-card-header>
         <md-icon md-list-icon md-card-avatar>description</md-icon>
         <md-card-title>{{ currentArticle.title }}</md-card-title>
@@ -17,3 +14,11 @@
         </p>
     </md-card-content>
 </md-card>
+
+<!-- Comments -->
+<div class="wrapper">
+    <div class="row">
+        <comment-form class="col-2-4" (onAddedComment)="getComments()"></comment-form>
+        <comment-list class="col-2-4" [comments]="comments"></comment-list>
+    </div>
+</div>
