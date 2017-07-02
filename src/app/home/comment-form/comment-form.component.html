@@ -1,0 +1,68 @@
+<div class="app-content">
+    <div class="group">
+        <form role="form" #commentForm="ngForm">
+
+            <div class="inline">
+                <table class="full-width" cellspacing="1">
+                    <tr>
+                        <td>
+                            <!-- Sender name field -->
+                            <md-input-container>
+                                <input mdInput class="input-field" type="text" [(ngModel)]="currentComment.senderName" name="name" #senderName="ngModel"
+                                    required>
+                                <md-placeholder>
+                                    <i class="material-icons app-input-icon">face</i>Name
+                                </md-placeholder>
+
+                                <md-error>
+                                    <div [hidden]="!senderName?.errors?.required">
+                                        Name is required
+                                    </div>
+                                </md-error>
+                            </md-input-container><br>
+                        </td>
+                        <td>
+                            <!-- E-mail field -->
+                            <md-input-container>
+                                <input mdInput class="input-field" type="text" [(ngModel)]="currentComment.senderEmail" name="email" #senderEmail="ngModel"
+                                    email required>
+                                <md-placeholder>
+                                    <i class="material-icons app-input-icon">email</i>E-mail
+                                </md-placeholder>
+
+                                <md-error>
+                                    <div [hidden]="!senderEmail?.errors?.required">
+                                        Email is required
+                                    </div>
+                                    <div [hidden]="!senderEmail.hasError('normalEmailRule')">
+                                        Isn't an email
+                                    </div>
+                                </md-error>
+                            </md-input-container><br>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Desription field -->
+            <md-input-container class="full-width">
+                <textarea mdInput class="input-field" [(ngModel)]="currentComment.description" name="description" minlength="5" maxlength="80"
+                    #description="ngModel" required></textarea>
+                <md-placeholder>Comment</md-placeholder>
+                <md-hint align="end">{{currentComment.description.length}} / 80</md-hint>
+
+                <md-error>
+                    <div [hidden]="!description?.errors?.required">
+                        Comment is required
+                    </div>
+                    <div [hidden]="!description?.errors?.minlength">
+                        Comment must be at least 5 characters long.
+                    </div>
+                </md-error>
+            </md-input-container><br><br>
+
+            <!-- Submit button -->
+            <button md-raised-button class="full-width" color="primary" type="submit" [disabled]="!commentForm.form.valid" (click)="addComment()">Add comment</button>
+        </form>
+    </div>
+</div>

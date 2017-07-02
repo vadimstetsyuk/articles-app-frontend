@@ -1,0 +1,14 @@
+<h2 *ngIf="comments">Showing {{ comments.length }} comments</h2>
+
+<md-card class="comment" *ngFor="let comment of comments">
+    <md-card-header>
+        <md-icon md-list-icon md-card-avatar>comment</md-icon>
+        <md-card-title>{{ comment.senderName }}</md-card-title>
+        <md-card-subtitle>{{ comment.date | date }}</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+        <p>
+            {{ comment.description }}
+        </p>
+    </md-card-content>
+</md-card>
