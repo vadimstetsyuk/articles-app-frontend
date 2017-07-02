@@ -18,8 +18,8 @@ import { CommentListComponent } from './home/comment-list/comment-list.component
 import { CommentFormComponent } from './home/comment-form/comment-form.component';
 import { PaginationComponent } from './home/articles-list/pagination/pagination.component';
 
-import { UserService, AuthenticationService, ArticleService, CommentService } from './services/index';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthenticationService, ArticleService, CommentService } from './_services/index';
+import { AuthGuard } from './_guards/auth.guard';
 
 
 @NgModule({
@@ -44,7 +44,6 @@ import { AuthGuard } from './guards/auth.guard';
     Routing
   ],
   providers: [
-    UserService,
     ArticleService,
     CommentService,
     AuthGuard,

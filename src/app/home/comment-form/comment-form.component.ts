@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Comment } from '../../models/comment';
-import { CommentService } from '../../services/index';
+import { Comment } from '../../_models/index';
+import { CommentService } from '../../_services/index';
 
 import { MdSnackBar } from '@angular/material';
 

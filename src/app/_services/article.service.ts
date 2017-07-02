@@ -3,7 +3,8 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 
-import { Article } from '../models/article';
+import { Article } from '../_models/index';
+import { SERVER } from './config';
 
 @Injectable()
 export class ArticleService {
@@ -12,7 +13,7 @@ export class ArticleService {
     }
 
     getArticles(): Observable<Article[]> {
-        let url = 'http://localhost:3000/api/articles';
+        let url = SERVER + 'articles';
 
         return this.http.get(url)
             .map((res: Response) => res.json())
@@ -20,7 +21,7 @@ export class ArticleService {
     }
 
     getArticleById(id: number): Observable<Article> {
-        let url = 'http://localhost:3000/api/articles/' + id;
+        let url = SERVER + 'articles/' + id;
 
         return this.http.get(url)
             .map((res: Response) => res.json())

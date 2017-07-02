@@ -1,7 +1,7 @@
 import { Component, AfterContentChecked } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/index';
-import { AuthGuard } from '../guards/auth.guard';
+import { AuthenticationService } from '../_services/index';
+import { AuthGuard } from '../_guards/auth.guard';
 
 @Component({
     selector: 'toolbar',

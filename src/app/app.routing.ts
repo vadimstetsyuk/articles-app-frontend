@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ArticlesListComponent } from './home/articles-list/articles-list.component';
 import { ArticleComponent } from './home/article/article.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './_guards/auth.guard';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },

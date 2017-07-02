@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Article } from '../../../models/article';
+import { Article } from '../../../_models/index';
 
 @Component({
     selector: 'pagination',

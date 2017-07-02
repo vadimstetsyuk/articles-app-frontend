@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { MdSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 
-import { AuthenticationService } from '../services/index';
-import { User } from '../models/user';
+import { AuthenticationService } from '../_services/index';
+import { User } from '../_models/index';
 
 @Component({
     selector: 'login-form',

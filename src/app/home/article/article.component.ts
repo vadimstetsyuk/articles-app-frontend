@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Article } from '../../models/article';
-import { Comment } from '../../models/comment';
-import { ArticleService, CommentService } from '../../services/index';
+import { Article, Comment } from '../../_models/index';
+import { ArticleService, CommentService } from '../../_services/index';
 
 @Component({
     selector: 'article',
