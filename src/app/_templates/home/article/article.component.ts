@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Article, Comment } from '../../_models/index';
-import { ArticleService, CommentService } from '../../_services/index';
+import { Article, Comment } from '../../../_models/index';
+import { ArticleService, CommentService } from '../../../_services/index';
 
 @Component({
     selector: 'article',
     templateUrl: './article.component.html',
-    styleUrls: ['article.component.scss']
+    styleUrls: ['./article.component.scss']
 })
 
 export class ArticleComponent implements OnInit {
@@ -41,7 +41,7 @@ export class ArticleComponent implements OnInit {
             .subscribe(
             (article) => {
                 // If article doesn't exist
-                if(article == null) this.goBack();
+                if(article == null) this.router.navigate(['/articles']);
 
                 this.currentArticle = article;
             },
@@ -60,12 +60,5 @@ export class ArticleComponent implements OnInit {
             err => {
                 console.log(err);
             });
-    }
-
-    /*
-    * Go to articles list
-    */
-    goBack() {
-        this.router.navigate(['articles']);
     }
 }

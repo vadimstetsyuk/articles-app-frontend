@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Comment } from '../../_models/index';
+import { Comment } from '../../../_models/index';
 
 @Component({
     selector: 'comment-list',

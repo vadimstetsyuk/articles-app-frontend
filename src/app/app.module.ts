@@ -9,14 +9,13 @@ import { ValidatorsModule } from 'ngx-validators';
 import { Routing } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { ArticlesListComponent } from './home/articles-list/articles-list.component';
-import { ArticleComponent } from './home/article/article.component';
-import { CommentListComponent } from './home/comment-list/comment-list.component';
-import { CommentFormComponent } from './home/comment-form/comment-form.component';
-import { PaginationComponent } from './home/articles-list/pagination/pagination.component';
+import { ToolbarComponent } from './_templates/toolbar/toolbar.component';
+import { LoginComponent } from './_templates/login/login.component';
+import { ArticlesListComponent } from './_templates/home/articles-list/articles-list.component';
+import { ArticleComponent } from './_templates/home/article/article.component';
+import { CommentListComponent } from './_templates/home/comment-list/comment-list.component';
+import { CommentFormComponent } from './_templates/home/comment-form/comment-form.component';
+import { PaginationComponent } from './_templates/home/articles-list/pagination/pagination.component';
 
 import { AuthenticationService, ArticleService, CommentService } from './_services/index';
 import { AuthGuard } from './_guards/auth.guard';
@@ -27,7 +26,6 @@ import { AuthGuard } from './_guards/auth.guard';
     AppComponent,
     ToolbarComponent,
     LoginComponent,
-    HomeComponent,
     ArticlesListComponent,
     ArticleComponent,
     CommentListComponent,

@@ -1,1 +1,1 @@
-export const SERVER = 'http://articles-app.herokuapp.com/api/';
+export const SERVER = 'https://articles-app.herokuapp.com/api/';

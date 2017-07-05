@@ -21,11 +21,11 @@ export class CommentService {
     }
 
     addComment(comment: Comment) : Observable<Comment> {
+        let url = SERVER + 'comments';
+
         let body = JSON.stringify(comment);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-
-        let url = SERVER + 'comments'
 
         return this.http.post(url, body, options)
             .map(res => <Comment>res.json());

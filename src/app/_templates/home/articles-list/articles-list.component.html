@@ -6,11 +6,9 @@
     <p md-line> {{ article.description }} </p>
 
     <!-- Read more -->
-    <button md-raised-button color="primary" (click)="openArticle(article.id)">Read more...</button>
+    <button md-raised-button [routerLink]="['/articles/' + article.id]" color="primary">Read more...</button>
   </md-list-item>
   <md-divider></md-divider>
 </md-list>
 
 <pagination [articles]="articles" [itemsPerPage]="itemsPerPage" (onPageChanged)="paginateArticles($event)"></pagination>
-
-<router-outlet></router-outlet>

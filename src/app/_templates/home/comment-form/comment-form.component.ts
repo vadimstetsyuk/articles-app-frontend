@@ -1,15 +1,15 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Comment } from '../../_models/index';
-import { CommentService } from '../../_services/index';
+import { Comment } from '../../../_models/index';
+import { CommentService } from '../../../_services/index';
 
 import { MdSnackBar } from '@angular/material';
 
 @Component({
     selector: 'comment-form',
     templateUrl: './comment-form.component.html',
-    styleUrls: ['comment-form.component.scss']
+    styleUrls: ['./comment-form.component.scss']
 })
 
 export class CommentFormComponent {

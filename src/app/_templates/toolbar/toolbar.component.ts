@@ -1,12 +1,12 @@
 import { Component, AfterContentChecked } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../_services/index';
-import { AuthGuard } from '../_guards/auth.guard';
+import { AuthenticationService } from '../../_services/index';
+import { AuthGuard } from '../../_guards/auth.guard';
 
 @Component({
     selector: 'toolbar',
     templateUrl: './toolbar.component.html',
-    styleUrls: ['toolbar.component.scss']
+    styleUrls: ['./toolbar.component.scss']
 })
 
 export class ToolbarComponent implements AfterContentChecked {

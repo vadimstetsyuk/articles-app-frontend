@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Article } from '../../_models/index';
-import { ArticleService } from '../../_services/index';
+import { Article } from '../../../_models/index';
+import { ArticleService } from '../../../_services/index';
 
 @Component({
     selector: 'articles-list',
     templateUrl: './articles-list.component.html',
-    styleUrls: ['articles-list.component.scss']
+    styleUrls: ['./articles-list.component.scss']
 })
 
 export class ArticlesListComponent implements OnInit {
@@ -61,13 +61,5 @@ export class ArticlesListComponent implements OnInit {
         this.paginated = this.articles.filter(article => {
             return this.articles.indexOf(article) >= low && this.articles.indexOf(article) < high;
         });
-    }
-
-    /*
-    * Redirect to selected article page
-    */
-    openArticle(id: number) {
-        let url = '/articles/' + id;
-        this.router.navigate([url]);
     }
 }
